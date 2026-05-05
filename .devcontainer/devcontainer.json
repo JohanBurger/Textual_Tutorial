@@ -1,0 +1,57 @@
+{
+    "name": "Textual Development",
+    "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.pylint",
+                "ms-python.black-formatter",
+                "ms-python.isort",
+                "ms-python.debugpy",
+                "charliermarsh.ruff",
+                "ms-toolsai.jupyter",
+                "donjayamanne.githistory",
+                "eamodio.gitlens"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.terminal.activateEnvironment": true,
+                "python.formatting.provider": "black",
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": false,
+                "python.linting.ruffEnabled": true,
+                "editor.formatOnSave": true,
+                "editor.codeActionsOnSave": {
+                    "source.organizeImports": "explicit"
+                },
+                "terminal.integrated.defaultProfile.linux": "bash"
+            }
+        }
+    },
+    "postCreateCommand": [
+        "bash",
+        "-c",
+        "apt-get update && apt-get install -y ncurses-term && pip install --upgrade pip && pip install textual textual-dev pytest black ruff isort mypy rich"
+    ],
+    "forwardPorts": [
+        8000
+    ],
+    "portsAttributes": {
+        "8000": {
+            "label": "Textual Dev Server"
+        }
+    },
+    "remoteUser": "vscode",
+    "containerEnv": {
+        "PYTHONPATH": "/workspaces/${localWorkspaceFolderBasename}",
+        "TERM": "xterm-256color"
+    },
+    "mounts": [
+        "source=${localWorkspaceFolder}/.git,target=/workspaces/${localWorkspaceFolderBasename}/.git,type=bind,consistency=cached"
+    ]
+}
