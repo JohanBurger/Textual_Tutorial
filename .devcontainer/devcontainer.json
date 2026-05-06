@@ -36,7 +36,7 @@
     "postCreateCommand": [
         "bash",
         "-c",
-        "apt-get update && apt-get install -y ncurses-term && pip install --upgrade pip && pip install textual textual-dev pytest black ruff isort mypy rich"
+        "sudo apt-get update && sudo apt-get install -y ncurses-term && pip install --upgrade pip && pip install textual textual-dev pytest black ruff isort mypy rich"
     ],
     "forwardPorts": [
         8000
