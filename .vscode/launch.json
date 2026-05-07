@@ -5,7 +5,7 @@
             "name": "Debug Textual App",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/hello_textual.py",
+            "program": "${workspaceFolder}/stopwatch.py",
             "console": "integratedTerminal",
             "justMyCode": true
         }
