@@ -26,7 +26,7 @@ class TimeDisplay(Digits):
         """Called when the time attribute changes."""
         minutes, seconds = divmod(time, 60)
         hours, minutes = divmod(minutes, 60)
-        self.update(f"{hours:02,.0f}:{minutes:02.0f}:{seconds:05.2f}")
+        self.update(f"{hours:02.0f}:{minutes:02.0f}:{seconds:05.2f}")
 
     def start(self) -> None:
         """Method to start (or resume) time updating."""
