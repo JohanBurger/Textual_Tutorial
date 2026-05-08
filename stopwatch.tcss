@@ -39,13 +39,13 @@ Button {
 }
 
 .started #start {
-    display: none
+    display: none;
 }
 
 .started #stop {
-    display: block
+    display: block;
 }
 
 .started #reset {
-    visibility: hidden
+    visibility: hidden;
 }
